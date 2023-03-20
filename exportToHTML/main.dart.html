@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>main.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'dart:math'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:flutter/material.dart'</span><span class="s2">;</span>
+
+<span class="s2">void </span><span class="s0">main() {</span>
+  <span class="s0">runApp(</span>
+    <span class="s0">MaterialApp(</span>
+      <span class="s0">home: Scaffold(</span>
+        <span class="s0">backgroundColor: Colors.lightBlue.shade100</span><span class="s2">,</span>
+        <span class="s0">appBar: AppBar(</span>
+          <span class="s0">title: Center(child: Text(</span><span class="s1">&quot;Ask Me Anything&quot;</span><span class="s0">))</span><span class="s2">,</span>
+          <span class="s0">backgroundColor: Colors.lightBlue.shade900</span><span class="s2">,</span>
+        <span class="s0">)</span><span class="s2">,</span>
+        <span class="s0">body: BallPage()</span><span class="s2">,</span>
+      <span class="s0">)</span><span class="s2">,</span>
+    <span class="s0">)</span><span class="s2">,</span>
+  <span class="s0">)</span><span class="s2">;</span>
+<span class="s0">}</span>
+
+<span class="s2">class </span><span class="s0">BallPage </span><span class="s2">extends </span><span class="s0">StatefulWidget {</span>
+  <span class="s2">const </span><span class="s0">BallPage({Key? key}) : </span><span class="s2">super</span><span class="s0">(key: key)</span><span class="s2">;</span>
+
+  <span class="s0">@override</span>
+  <span class="s0">State&lt;BallPage&gt; createState() =&gt; _BallPageState()</span><span class="s2">;</span>
+<span class="s0">}</span>
+
+<span class="s2">class </span><span class="s0">_BallPageState </span><span class="s2">extends </span><span class="s0">State&lt;BallPage&gt; {</span>
+  <span class="s0">int ballNumber = </span><span class="s3">0</span><span class="s2">;</span>
+
+  <span class="s0">@override</span>
+  <span class="s0">Widget build(BuildContext context) {</span>
+    <span class="s2">return </span><span class="s0">Center(</span>
+      <span class="s0">child: Row(</span>
+        <span class="s0">children: [</span>
+          <span class="s0">Expanded(</span>
+            <span class="s0">child: Padding(</span>
+              <span class="s0">padding: </span><span class="s2">const </span><span class="s0">EdgeInsets.all(</span><span class="s3">15.0</span><span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">child: TextButton( </span><span class="s4">//randomise the Ball Number</span>
+                <span class="s0">onPressed: () {</span>
+                  <span class="s0">setState(() {</span>
+                    <span class="s0">ballNumber = Random().nextInt(</span><span class="s3">5</span><span class="s0">) + </span><span class="s3">1</span><span class="s2">; </span><span class="s4">//functions</span>
+                    <span class="s0">print(</span><span class="s1">'New ball number is </span><span class="s0">$ballNumber</span><span class="s1">'</span><span class="s0">)</span><span class="s2">;</span>
+                  <span class="s0">})</span><span class="s2">;</span>
+                <span class="s0">}</span><span class="s2">,</span>
+                <span class="s0">child: ballNumber == </span><span class="s3">0 </span><span class="s4">//if Ball Number equals 0</span>
+                    <span class="s0">? Container( </span>
+                  <span class="s0">width: </span><span class="s3">300</span><span class="s2">,</span>
+                  <span class="s0">height: </span><span class="s3">300</span><span class="s2">,</span>
+                  <span class="s0">color: Colors.lightBlue.shade100</span><span class="s2">,</span>
+                  <span class="s0">child: Column(</span>
+                    <span class="s0">mainAxisAlignment: MainAxisAlignment.center</span><span class="s2">,</span>
+                    <span class="s0">children: [</span>
+                      <span class="s0">CircleAvatar( </span><span class="s4">//image for click me</span>
+                        <span class="s0">backgroundImage: AssetImage(</span><span class="s1">'images1/image6.png'</span><span class="s0">)</span><span class="s2">,</span>
+                        <span class="s0">radius: </span><span class="s3">100.0</span><span class="s2">,</span>
+                      <span class="s0">)</span><span class="s2">,</span>
+                      <span class="s0">Text(</span>
+                        <span class="s1">'Press the button to see your future'</span><span class="s2">, </span><span class="s4">//user reminder</span>
+                        <span class="s0">style: TextStyle(</span>
+                          <span class="s0">fontSize: </span><span class="s3">25.0</span><span class="s2">,</span>
+                          <span class="s0">color: Colors.black</span><span class="s2">,</span>
+                          <span class="s0">fontWeight: FontWeight.bold</span><span class="s2">,</span>
+                          <span class="s0">fontFamily: </span><span class="s1">'Time New Roman'</span><span class="s2">,</span>
+                        <span class="s0">)</span><span class="s2">,</span>
+                        <span class="s0">textAlign: TextAlign.center</span><span class="s2">, </span><span class="s4">//make user reminder center</span>
+                      <span class="s0">)</span><span class="s2">,</span>
+                    <span class="s0">]</span><span class="s2">,</span>
+                  <span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">)</span>
+                    <span class="s0">: Image.asset( </span><span class="s4">//if Ball Number not equals to 0</span>
+                  <span class="s1">'images/ball</span><span class="s0">$ballNumber</span><span class="s1">.png'</span><span class="s2">,</span>
+                  <span class="s0">height: </span><span class="s3">300</span><span class="s2">,</span>
+                  <span class="s0">width: </span><span class="s3">300</span><span class="s2">,</span>
+                <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+        <span class="s0">]</span><span class="s2">,</span>
+      <span class="s0">)</span><span class="s2">,</span>
+    <span class="s0">)</span><span class="s2">;</span>
+  <span class="s0">}</span>
+<span class="s0">}</span>
+</pre>
+</body>
+</html>
