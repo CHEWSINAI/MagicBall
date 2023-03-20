@@ -38,7 +38,7 @@ class _BallPageState extends State<BallPage> {
                 onPressed: () {
                   setState(() {
                     ballNumber = Random().nextInt(5) + 1; //functions
-                    print('New ball number is $ballNumber');
+                    print('The button is pressed. Your new ball number is $ballNumber');
                   });
                 },
                 child: ballNumber == 0 //if Ball Number equals 0
